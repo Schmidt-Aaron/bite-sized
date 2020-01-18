@@ -1,3 +1,10 @@
+// TODO add option to play AI and add difficulty settings
+// difficulty easy = opp goes in random cell
+// difficulty medium = ai goes in best square 50%
+// difficulty hard = ai goes in best square 75%
+// difficulty impossible = ai goes in best square 100%
+// TODO add optimal ai move algorithm
+
 // constants
 const X_CLASS = "x";
 const O_CLASS = "o";
@@ -12,6 +19,10 @@ const WIN_CONDITIONS = [
   [2, 4, 6]
 ];
 
+// track turns // game state
+let xTurn;
+let winner;
+
 // grab relevant elements
 const cells = document.querySelectorAll(".cell");
 const board = document.querySelector(".board");
@@ -20,6 +31,7 @@ const closeModalElement = document.querySelector(".close-modal");
 const resetButton = document.querySelector(".reset");
 const winnerMessage = document.querySelector(".message");
 
+// add event listeners
 closeModalElement.addEventListener("click", closeModal);
 resetButton.addEventListener("click", game);
 
@@ -30,10 +42,6 @@ function closeModal() {
 function openModal() {
   modal.classList.add("show");
 }
-
-// track turns
-let xTurn;
-let winner;
 
 // init game
 function game() {
@@ -73,12 +81,13 @@ function endGame(isWinner) {
     cell.removeEventListener("click", handleCellClick);
   });
 
-  // set winner msg
-  let messageForWin = `${currentTurnClass.toUpperCase()} Won The Game!!!`;
+  // winner msg
+  let messageForWin = `${currentTurnClass.toUpperCase()}'s Win The Game!!!`;
 
-  // set draw msg
-  let messageForDraw = `It's a Draw!! Try again?`;
+  // draw msg
+  let messageForDraw = `It's a Draw!!`;
 
+  // apply modal message
   if (isWinner) {
     winner = true;
     winnerMessage.innerHTML = messageForWin;
@@ -86,6 +95,7 @@ function endGame(isWinner) {
     winnerMessage.innerHTML = messageForDraw;
   }
 
+  // show the modal
   openModal();
 }
 
@@ -107,7 +117,6 @@ function setBoardClass() {
 // returns true of false if there is a winner
 function checkForWinner() {
   const currentTurnClass = xTurn ? X_CLASS : O_CLASS;
-  let currentTurnArray;
 
   // loops through our win condition array and to checks each set against the current CELL array and returns true if each element in the win con matches  the current class to of the cell of the same index matches the currentTurnClass
   return WIN_CONDITIONS.some(condition => {
