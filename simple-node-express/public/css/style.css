@@ -1,0 +1,41 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+header {
+  width: 100%;
+  height: 3.5rem;
+  background-color: rgb(80, 27, 226);
+}
+nav {
+  display: flex;
+}
+ul {
+  margin-block: 0;
+  list-style: none;
+  display: flex;
+}
+ul li {
+}
+a {
+  color: white;
+  text-decoration: none;
+  margin-left: 1rem;
+}
+li a:active,
+a:hover {
+  color: rgb(175, 241, 112);
+}
+main {
+  padding: 2rem;
+}
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+input {
+  margin-bottom: 0.5rem;
+}
+button[type="submit"] {
+  display: block;
+}
