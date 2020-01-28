@@ -1,0 +1,17 @@
+<%- include('./includes/head.ejs') %>
+</head>
+<body>
+  <%- include('./includes/nav.ejs') %>
+  <main>
+    <% if( hasUser ) { %>
+    <h1>Current Users</h1>
+    <ul>
+      <% for( let name of users) { %>
+      <li><%= name %></li>
+      <% } %>
+    </ul>
+    <% } else { %>
+      <h1>No Active Users!</h1>
+      <%  } %>
+  </main>
+</body>
