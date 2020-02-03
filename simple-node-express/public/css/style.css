@@ -15,8 +15,6 @@ ul {
   list-style: none;
   display: flex;
 }
-ul li {
-}
 a {
   color: white;
   text-decoration: none;
