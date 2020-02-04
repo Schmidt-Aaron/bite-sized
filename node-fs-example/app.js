@@ -24,6 +24,14 @@ app.use(bodyParser.json());
 
 // routing
 const basicRoutes = require("./routes/basicRoutes");
+const dogController = require("./controllers/dog");
 app.use("/", basicRoutes);
+
+app.post("/dogs", dogController.postDogs);
+app.get("/dogs", dogController.getDogs);
+
+// set up 404 catch-all
+const errorController = require("./controllers/error");
+app.use(errorController.is404);
 
 app.listen(PORT, console.log(`App running on ${PORT}`));

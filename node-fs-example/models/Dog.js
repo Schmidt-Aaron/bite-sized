@@ -24,6 +24,19 @@ class Dog {
     this.name = name;
     this.breed = breed;
   }
+
+  save() {
+    getDogsFromFile(dogs => {
+      dogs.push(this);
+      fs.writeFile(filePath, JSON.stringify(dogs), err => {
+        console.log(err);
+      });
+    });
+  }
+
+  static getAllDogs(cb) {
+    getDogsFromFile(cb);
+  }
 }
 
 module.exports = Dog;

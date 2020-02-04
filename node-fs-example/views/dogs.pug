@@ -1,0 +1,16 @@
+extends ./includes/layout.pug
+
+block scripts
+  //- scrips go here
+  link(rel="stylesheet", href="style.css")
+
+block content
+  h2 The Dogs!!!
+  p Here they are. All of the lovely dogs.
+  if (hasDogs)
+    ul 
+      each dog in dogs
+        li= dog.name + ' is a ' + dog.breed
+
+  else 
+    p No Dogs on the list, yet!

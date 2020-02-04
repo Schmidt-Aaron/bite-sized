@@ -1,8 +1,41 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: content-box;
+}
+
+a {
+  text-decoration: none;
+}
+
 body {
   display: flex;
   flex-direction: column;
   width: 100%;
   align-items: center;
+}
+
+header {
+  width: 100%;
+}
+
+.header {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.brand a {
+  display: flex;
+  color: #111;
+}
+
+.brand img {
+  margin-right: 0.5rem;
+}
+
+.navmenu :first-child {
+  margin-right: 1rem;
 }
 
 label {
@@ -12,6 +45,14 @@ label {
 
 button {
   display: block;
-  text-align: center;
-  margin: 1rem auto;
+  margin: 1rem 0 0;
+}
+
+h2 {
+  margin-bottom: 2rem;
+}
+
+ul {
+  margin-top: 1rem;
+  margin-left: 1.5rem;
 }
