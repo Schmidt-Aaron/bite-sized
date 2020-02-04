@@ -1,7 +1,15 @@
-extends ./partials/layout.pug
+extends ./includes/layout.pug
 
 block scripts
   //- scrips go here
+  link(rel="stylesheet", href="style.css")
 
 block content
   h1 Welcome to The Dog Lister!
+  p Add your dog to the list.
+  form(method='POST' action="/") 
+    label(for="name") Name
+    input#name(type="text", name="name")
+    label(for="breed") Breed
+    input#breed(type="text", name="breed")
+    button(type="submit") Submit!
