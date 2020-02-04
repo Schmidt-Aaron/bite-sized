@@ -6,7 +6,7 @@ block scripts
 
 block content
   h2 Welcome to Dog Lister!
-  p Add your dog to the list.
+  p Add your dog to the list. In this case the list is a json file stored on our server. No databases needed!
   form(method='POST' action="/dogs") 
     label(for="name") Name
     input#name(type="text", name="name")
